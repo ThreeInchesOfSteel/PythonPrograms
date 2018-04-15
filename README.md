@@ -38,3 +38,13 @@ Possible improvements:
 - Structure fixtures so that teams cannot play home/away in 3 consecutive rounds
 - Structure fixtures so that teams from same cities/other criteria cannot all play at home in same round
 - MORE COMMENT LINES
+
+## Deck Of Cards
+
+Currently:
+- Defines individual playing cards and a deck of all 52 cards
+- Two classes: One defining a single card, and one defining a deck
+- Shuffles the full deck into a random order
+
+Possible improvements:
+- Implement into actual card games (Blackjack, Poker, etc)
