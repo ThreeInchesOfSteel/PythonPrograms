@@ -48,3 +48,13 @@ Currently:
 
 Possible improvements:
 - Implement into actual card games (Blackjack, Poker, etc)
+
+## Blackjack
+
+Currently:
+- Uses DeckOfCards program to run a game of Blackjack
+- User plays against the AI (the dealer)
+- Aces are worth 11 points
+
+Possible improvements:
+- Allow for Aces to be worth **either** 1 or 11 points
