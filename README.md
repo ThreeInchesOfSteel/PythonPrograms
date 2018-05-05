@@ -9,7 +9,7 @@ Currently:
 - Keeps track of the players current score
     
 Possible improvements:
-- Check player input is valid
+- [ ] Check player input is valid
 
 ## Hangman
 
@@ -20,10 +20,10 @@ Currently:
 - Tracks previously guessed letters to stop player guessing same guess twice
 
 Possible improvements:
-- Generate a random word from another file
-- Handle multiple words/phrases, e.g. "Iron Man" would be "---- ---"
-- Print list of previously guessed letters after every guess
-- MORE COMMENT LINES
+- [ ] Generate a random word from another file
+- [ ] Handle multiple words/phrases, e.g. "Iron Man" would be "---- ---"
+- [ ] Print list of previously guessed letters after every guess
+- [ ] MORE COMMENT LINES
 
 ## Fixtures Generator
 
@@ -33,11 +33,11 @@ Currently:
 - Randomises the order of the fixtures and prints them on separate lines
 
 Possible improvements:
-- Take a list of teams from a file, of potentially any length
-- Structure fixtures into "rounds", where each team plays in a round only once
-- Structure fixtures so that teams cannot play home/away in 3 consecutive rounds
-- Structure fixtures so that teams from same cities/other criteria cannot all play at home in same round
-- MORE COMMENT LINES
+- [ ] Take a list of teams from a file, of potentially any length
+- [ ] Structure fixtures into "rounds", where each team plays in a round only once
+- [ ] Structure fixtures so that teams cannot play home/away in 3 consecutive rounds
+- [ ] Structure fixtures so that teams from same cities/other criteria cannot all play at home in same round
+- [ ] MORE COMMENT LINES
 
 ## Deck Of Cards
 
@@ -47,14 +47,15 @@ Currently:
 - Shuffles the full deck into a random order
 
 Possible improvements:
-- Implement into actual card games (Blackjack, Poker, etc)
+- [ ] Implement into actual card games (Blackjack, Poker, etc)
 
 ## Blackjack
 
 Currently:
 - Uses DeckOfCards program to run a game of Blackjack
 - User plays against the AI (the dealer)
-- Aces are worth 11 points
+- Aces can be worth 1 or 11 points
 
 Possible improvements:
-- Allow for Aces to be worth **either** 1 or 11 points
+- [x] Allow for Aces to be worth **either** 1 or 11 points
+- [x] Add time delay to slow down command line
