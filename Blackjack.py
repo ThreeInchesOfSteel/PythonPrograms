@@ -1,5 +1,7 @@
 #Need this to shuffle the deck
 import random
+#Need this to slow down text
+import time
 
 #Class defining a single Card, with a value (1-13) and a suit
 class Card:
@@ -43,18 +45,42 @@ class Deck:
     def draw(self):
         return self.cards.pop()
 
-#Determines the point value of a hand
 def evaluator(hand):
-    
-    points = 0
+    '''Determines the value of a hand
+	if hand contains Aces, runs the aces_eval function'''
+
+    points = num_of_aces = 0
     for a in range(0,len(hand)):
         if hand[a].value in [11,12,13]:
             points += 10
         elif hand[a].value == 1:
-            points += 11
+            num_of_aces += 1
         else:
             points += hand[a].value
-    return points
+    if num_of_aces == 0:
+        return points
+    else:
+        return aces_eval(points, num_of_aces)
+    
+def aces_eval(points, num_of_aces):
+    '''Determines possible hand values if hand contains Aces'''
+    
+    max = 0
+    possible_pts = []
+	#Adds each possible hand value to list
+    for b in range(0, num_of_aces+1):
+        possible_pts.append(points + num_of_aces + b*10)
+    
+	#Looks for the highest possible value under 22
+    for c in possible_pts:
+        if c < 22 and c > max:
+            max = c
+    
+	#If none of the possible values are under 22, sets the max = 22 to trigger bust
+    if max == 0:
+        max = 22
+    
+    return max
 
 #Asks player if they want to play before entering game loop
 play = False
@@ -96,6 +122,7 @@ while play == True:
             
         #Reveals one of the dealer's cards
         print("The dealer has:\nX")
+        time.sleep(1)
         dealerhand[0].reveal()  
             
         #While the player has a valid hand and hasn't chosen to stick
@@ -103,6 +130,7 @@ while play == True:
         
             print("You have:")
             for a in range(0,len(playerhand)):
+                time.sleep(1)
                 playerhand[a].reveal()
             
             #Asks if they want to Stick or Twist. If Twist, new card is drawn and added to player's hand
@@ -113,6 +141,7 @@ while play == True:
                 newcard = newdeck.draw()
                 playerhand.append(newcard)
                 print("You have drawn:")
+                time.sleep(1)
                 newcard.reveal()
             
             #Checks if player has bust and declares them a loser if so
@@ -127,6 +156,7 @@ while play == True:
         #Now that the player's turns are over, both the dealer's cards are revealed
         print("The dealer has:")
         for a in range(0,len(dealerhand)):
+            time.sleep(1)
             dealerhand[a].reveal()
         
         #If the dealer has less than 17 points, they must draw a card. Otherwise they Stick
@@ -134,6 +164,7 @@ while play == True:
         
             newcard = newdeck.draw()
             dealerhand.append(newcard)
+            time.sleep(1)
             newcard.reveal()
             dealerpts = evaluator(dealerhand)
          
@@ -152,14 +183,19 @@ while play == True:
         break
     
     #Reveals player's and dealer's final hands
+    time.sleep(1)
     print("You had: ")
+    time.sleep(1)
     for a in range(0,len(playerhand)):
         playerhand[a].reveal()
+    time.sleep(1)
     print("The dealer had:")
+    time.sleep(1)
     for a in range(0,len(dealerhand)):
         dealerhand[a].reveal()
     
     #Asks player for another game. If not, then outer loop ends and the game ends
+    time.sleep(1)
     playagain = raw_input("Would you like to play again? [Y/N] ").upper()
     if playagain == "N":
         print("Goodbye!")
